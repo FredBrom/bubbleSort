@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "bsort.h"
 #include "printVector.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 int main() {
 
@@ -9,7 +9,7 @@ int main() {
   size_t n = sizeof(vector) / sizeof(vector[0]);
 
   printVectori(stdout, vector, n);
-  bsort(vector, n);
+  bsort(vector, n, sizeof(int), compareInt);
   printVectori(stdout, vector, n);
 
   return 0;

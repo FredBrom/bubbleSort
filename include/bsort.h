@@ -1,8 +1,13 @@
 #ifndef BUBBLESORT_H
 #define BUBBLESORT_H
 
-void bsort(int *vector, size_t size);
+#include <stdlib.h>
 
-void swap(int *a, int *b);
+void bsort(void *vector, size_t num_elements, size_t size,
+           int (*compare)(const void *, const void *));
+
+void swap(void *a, void *b, size_t size);
+
+int compareInt(const void *a, const void *b);
 
 #endif // !BUBBLESORT_H

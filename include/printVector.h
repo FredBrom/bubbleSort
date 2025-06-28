@@ -1,6 +1,9 @@
 #ifndef PRINTVECTOR_H
 #define PRINTVECTOR_H
 
+#include <stdio.h>
+#include <stdlib.h>
+
 int printVectord(FILE *stream, double *vector, size_t size, int decFig);
 
 int printVectors(FILE *stream, char **vector);
