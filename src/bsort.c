@@ -48,3 +48,19 @@ int compareInt(const void *a, const void *b) {
   return (*(const int *)a > *(const int *)b) -
          (*(const int *)a < *(const int *)b);
 }
+
+int compareDouble(const void *a, const void *b) {
+  return (*(const double *)a > *(const double *)b) -
+         (*(const double *)a < *(const double *)b);
+}
+
+int compareFloat(const void *a, const void *b) {
+  return (*(const float *)a > *(const float *)b) -
+         (*(const float *)a < *(const float *)b);
+}
+
+int compareStrint(const void *a, const void *b) {
+  const char *str1 = *(const char **)a;
+  const char *str2 = *(const char **)b;
+  return strcmp(str1, str2);
+}
