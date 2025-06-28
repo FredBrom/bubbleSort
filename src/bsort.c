@@ -5,6 +5,11 @@
 
 void bsort(void *vector, size_t num_elements, size_t size,
            int (*compare)(const void *, const void *)) {
+
+  if (num_elements < 2) {
+    return;
+  }
+
   size_t i = num_elements - 1;
   size_t j;
 
