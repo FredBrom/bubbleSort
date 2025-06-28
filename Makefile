@@ -32,3 +32,11 @@ clean:
 
 make_dirs:
 	mkdir -p $(SRC_DIR) $(BIN_DIR) $(INCLUDE_DIR) $(OBJ_DIR) $(TESTS_DIR)
+
+test: $(TEST_BINS)
+	@echo "Running Tests:"
+	@for test in $(TEST_BINS); do \
+		echo "==> $$test"; \
+		./$$test; \
+		echo ""; \
+	done
