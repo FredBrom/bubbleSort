@@ -11,7 +11,7 @@ int main() {
   char *names[] = {"Frederico", "Bia", "Gui", "Ana", "Sonia", "Bruna", NULL};
 
   printVectors(stdout, names);
-  bsort(names, 6, sizeof(names[0]), compareStrint);
+  bsort(names, 6, sizeof(names[0]), compareString);
 
   printVectors(stdout, names);
 

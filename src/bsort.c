@@ -59,7 +59,7 @@ int compareFloat(const void *a, const void *b) {
          (*(const float *)a < *(const float *)b);
 }
 
-int compareStrint(const void *a, const void *b) {
+int compareString(const void *a, const void *b) {
   const char *str1 = *(const char **)a;
   const char *str2 = *(const char **)b;
   return strcmp(str1, str2);

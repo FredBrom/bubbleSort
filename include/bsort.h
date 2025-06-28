@@ -14,6 +14,6 @@ int compareFloat(const void *a, const void *b);
 
 int compareDouble(const void *a, const void *b);
 
-int compareStrint(const void *a, const void *b);
+int compareString(const void *a, const void *b);
 
 #endif // !BUBBLESORT_H
