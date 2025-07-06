@@ -12,7 +12,7 @@ int main() {
   size_t n = sizeof(vector) / sizeof(vector[0]);
 
   printVectori(stdout, vector, n);
-  bsort(vector, n, sizeof(int), compareInt);
+  bsort(vector, n, sizeof(int), bsort_compare_int);
   printVectori(stdout, vector, n);
 
   return 0;

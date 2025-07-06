@@ -23,7 +23,7 @@ int main() {
   size_t n = sizeof(vector) / sizeof(vector[0]);
 
   printVectord(stdout, vector, n, 2);
-  bsort(vector, n, sizeof(double), compareDouble);
+  bsort(vector, n, sizeof(double), bsort_compare_double);
   printVectord(stdout, vector, n, 2);
 
   return 0;

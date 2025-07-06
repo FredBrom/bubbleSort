@@ -23,7 +23,7 @@ int main() {
   size_t n = sizeof(vector) / sizeof(vector[0]);
 
   printVectorf(stdout, vector, n, 2);
-  bsort(vector, n, sizeof(float), compareFloat);
+  bsort(vector, n, sizeof(float), bsort_compare_float);
   printVectorf(stdout, vector, n, 2);
 
   return 0;

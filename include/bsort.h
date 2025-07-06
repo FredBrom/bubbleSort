@@ -6,14 +6,14 @@
 void bsort(void *vector, size_t num_elements, size_t size,
            int (*compare)(const void *, const void *));
 
-void swap(void *a, void *b, size_t size);
+void bsort_swap(void *a, void *b, size_t size);
 
-int compareInt(const void *a, const void *b);
+int bsort_compare_int(const void *a, const void *b);
 
-int compareFloat(const void *a, const void *b);
+int bsort_compare_float(const void *a, const void *b);
 
-int compareDouble(const void *a, const void *b);
+int bsort_compare_double(const void *a, const void *b);
 
-int compareString(const void *a, const void *b);
+int bsort_compare_string(const void *a, const void *b);
 
 #endif // !BUBBLESORT_H
