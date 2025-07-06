@@ -19,13 +19,13 @@ It must:
 - return -1 if a < b
 
 ```c
-int compareInt(const void *a, const void *b);
+int bsort_compare_int(const void *a, const void *b);
 
-int compareFloat(const void *a, const void *b);
+int bsort_compare_float(const void *a, const void *b);
 
-int compareDouble(const void *a, const void *b);
+int bsort_compare_double(const void *a, const void *b);
 
-int compareString(const void *a, const void *b);
+int bsort_compare_string(const void *a, const void *b);
 ```
 
-The function `compareString` is implemented using the `strcmp` function defined in string.h of clib.
+The function `bsort_compare_string` is implemented using the `strcmp` function defined in string.h of clib.
