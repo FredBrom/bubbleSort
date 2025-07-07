@@ -21,9 +21,9 @@ int main() {
 
   size_t n = sizeof(vector) / sizeof(vector[0]);
 
-  printVectori(stdout, vector, n);
+  print_vector_int(stdout, vector, n);
   bsort(vector, n, sizeof(int), bsort_compare_int);
-  printVectori(stdout, vector, n);
+  print_vector_int(stdout, vector, n);
 
   return 0;
 }

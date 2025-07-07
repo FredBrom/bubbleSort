@@ -10,10 +10,9 @@ int main() {
 
   char *names[] = {"Frederico", "Bia", "Gui", "Ana", "Sonia", "Bruna", NULL};
 
-  printVectors(stdout, names);
+  print_vector_string(stdout, names);
   bsort(names, 6, sizeof(names[0]), bsort_compare_string);
-
-  printVectors(stdout, names);
+  print_vector_string(stdout, names);
 
   return 0;
 }

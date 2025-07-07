@@ -22,9 +22,9 @@ int main() {
 
   size_t n = sizeof(vector) / sizeof(vector[0]);
 
-  printVectorf(stdout, vector, n, 2);
+  print_vector_float(stdout, vector, n, 2);
   bsort(vector, n, sizeof(float), bsort_compare_float);
-  printVectorf(stdout, vector, n, 2);
+  print_vector_float(stdout, vector, n, 2);
 
   return 0;
 }
