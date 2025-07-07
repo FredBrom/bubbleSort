@@ -1,14 +1,15 @@
  # === Configs ===
 
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99 -MMD -MP 
-LDFLAGS = -lprintVector
+CFLAGS = -Wall -Wextra -std=c99 -MMD -MP
+PROJECT = bsort
+LDFLAGS = -lprintVector -lbsort
 INCLUDE_DIR = include
 SRC_DIR = src
 OBJ_DIR = obj
 BIN_DIR = bin
-LIB_DIR = lib
 TEST_DIR = test
+LIB_DIR = lib
 
 # === source Files and Obj ===
 
@@ -27,21 +28,21 @@ TEST_BINS := $(patsubst $(TEST_DIR)/%.c,$(BIN_DIR)/%,$(TEST_SRC))
 
 # === Rules ===
 
-.PHONY: all clean test run make_dirs
+.PHONY: all clean test run make_dirs lib
 
-all: make_dirs $(OBJ_FILES) $(TEST_BINS)
+all: make_dirs $(OBJ_FILES) lib $(TEST_BINS)
 
 # compile .o
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -L$(LIB_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -c $< -o $@
 
 # compile test
 $(BIN_DIR)/%: $(TEST_DIR)/%.c $(OBJ_FILES)
-	$(CC) $(CFLAGS) $(LDFLAGS) -I$(INCLUDE_DIR) -L$(LIB_DIR) $(OBJ_FILES) $< -o $@
+	$(CC) $(CFLAGS) $(LDFLAGS) -I$(INCLUDE_DIR) -L$(LIB_DIR) $< -o $@
 
 # main exex
 $(MAIN_EXEC): $(OBJ_FILES)
-	$(CC) $(CFLAGS) $(LDFLAGS) -L$(LIB_DIR) -I$(INCLUDE_DIR) -o $@ $^
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 
 # run tests
 test: make_dirs $(OBJ_FILES) $(TEST_BINS)
@@ -56,13 +57,18 @@ test: make_dirs $(OBJ_FILES) $(TEST_BINS)
 run: $(MAIN_EXEC)
 	./$(MAIN_EXEC)
 
+# Make lib
+lib: make_dirs $(OBJ_FILES)
+	ar rcs $(LIB_DIR)/lib$(PROJECT).a $(OBJ_FILES)
+	tar cvfz LIB_$(PROJECT).tar.gz ./lib/lib$(PROJECT).a ./include/$(PROJECT).h
+
 # make dirs
 make_dirs:
-	mkdir -p $(OBJ_DIR) $(BIN_DIR)
+	mkdir -p $(OBJ_DIR) $(BIN_DIR) $(LIB_DIR)
 
 # clean all
 clean:
-	rm -rf $(OBJ_FILES) $(TEST_BINS) $(DEP_FILES) $(BIN_DIR)/*
+	rm -rf $(OBJ_DIR) $(BIN_DIR) $(LIB_DIR)/lib$(PROJECT).a
 
 # Dependece files .d
 -include $(DEP_FILES)
